@@ -19,3 +19,19 @@ Podcast-DAI is a Ad Inserter for your (self-hosted) podacast, programmed live on
 		- fn cut_insert(cut_time, insertion_file)
 	- we have to store the cut-points
 	- use and convert into different formats (e.g .flac -> .mp3)
+
+
+## The Flow
+
+1. Greet the User
+2. What do you want to do?
+	- Start from scratch
+
+	- Insert Ad into all Episodes
+	- Insert Ad into one Episode
+
+	- Add an Episode and Midroll Time
+	- Change Midroll Time(s)
+	- Delete Episode
+	
+	- Quit
