@@ -9,3 +9,5 @@ edition = "2018"
 [dependencies]
 dialoguer = "0.8.0"
 console = "0.14.1"
+human-panic = "1.0.3"
+dirs = "3.0"

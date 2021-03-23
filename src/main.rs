@@ -1,21 +1,25 @@
-use std::process::Command;
-use std::str;
+// use std::process::Command;
+use human_panic::setup_panic;
+
+mod ffmpeg_manager;
+mod input_handler;
 
 fn main() {
+	setup_panic!();
 	// https://doc.rust-lang.org/std/process/struct.Command.html
-	let output = Command::new("cmd")
-				.args(&["/C", "echo hello"])
-				.output()
-				.expect("failed to execute process");
-	// else {
-	// 	Command::new("sh")
-	// 			.arg("-c")
-	// 			.arg("echo hello")
-	// 			.output()
-	// 			.expect("failed to execute process")
-	// };
 	
-	let hello = str::from_utf8(&output.stdout).unwrap();
+	if ffmpeg_manager::ffmpeg_installation_valid() {
+		// FFmpeg Installation is valid, continue with regular flow
+		println!("Installation valid, continueing");
 
-	println!("{:?}", hello);
+		input_handler::midroll_time();
+
+	} else {
+		// FFmpeg is invalid
+		println!("Your FFmpeg installation seems to be invalid. Please make
+		sure you have it installed correctly!");
+
+		/* Maybe trigger automatic installation flow, until then: "Press any
+		button to close this window" */
+	}
 }
